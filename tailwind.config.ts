@@ -18,6 +18,7 @@ const config: Config = {
         navy: '#3B4D66',
         grayNavy: '#626C7F',
         lightBluish: '#ABC1E1',
+        lightGray: '#F4F6FA',
       },
     },
   },

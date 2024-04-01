@@ -17,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <main className="bg-blur bg-darkNavy bg-cover bg-no-repeat h-screen">
-          <div className="mx-auto max-w-7xl">{children}</div>
+        <main className="bg-blur bg-darkNavy bg-cover bg-no-repeat min-h-screen">
+          <div className="mx-auto max-w-7xl pb-12">{children}</div>
         </main>
       </body>
     </html>

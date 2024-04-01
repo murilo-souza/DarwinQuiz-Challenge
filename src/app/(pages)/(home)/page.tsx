@@ -1,7 +1,8 @@
 // import { QuizOptions } from '@/components/quiz/quiz-options'
-import Access from '../../../../public/access.png'
-import Image from 'next/image'
+
 import { AnswerOptions } from '@/components/answer/answer-options'
+import { Button } from '@/components/button'
+import { QuizLogo } from '@/components/quiz-logo'
 
 export default function Home() {
   return (
@@ -16,13 +17,11 @@ export default function Home() {
     //   </div>
     //   <QuizOptions />
     // </div>
-    <div className="pt-[97px]">
-      <div className="flex gap-6 items-center mb-[85px]">
-        <Image src={Access} alt="Quiz Logo" />
-        <span className="text-white text-[28px]">Accessibility</span>
-      </div>
 
-      <div className="grid grid-cols-2">
+    <div className="pt-[97px]">
+      <QuizLogo title="Accessibility" />
+
+      <div className="grid grid-cols-2  mt-[85px]">
         <div className="flex flex-col gap-12">
           <span className="text-lightBluish italic text-xl">
             Question 6 of 10
@@ -40,5 +39,25 @@ export default function Home() {
         <AnswerOptions />
       </div>
     </div>
+
+    // <div className="pt-[97px]">
+    //   <QuizLogo title="Accessibility" />
+
+    //   <div className="grid grid-cols-2  mt-[85px]">
+    //     <div className="flex flex-col gap-12">
+    //       <h1 className="text-white text-[64px] leading-none max-w-[465px]">
+    //         Quiz completed <span className="font-bold">You scored...</span>
+    //       </h1>
+    //     </div>
+    //     <div className="flex flex-col gap-8">
+    //       <div className="bg-navy flex flex-col items-center p-12 rounded-3xl">
+    //         <QuizLogo title="Accessibility" />
+    //         <h2 className="text-white text-[144px]">8</h2>
+    //         <span className="text-lightBluish text-2xl">out of 10</span>
+    //       </div>
+    //       <Button title="Play Again" />
+    //     </div>
+    //   </div>
+    // </div>
   )
 }

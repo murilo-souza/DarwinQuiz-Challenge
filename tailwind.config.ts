@@ -19,6 +19,7 @@ const config: Config = {
         grayNavy: '#626C7F',
         lightBluish: '#ABC1E1',
         lightGray: '#F4F6FA',
+        lightViolet: '#F6E7FF',
       },
     },
   },

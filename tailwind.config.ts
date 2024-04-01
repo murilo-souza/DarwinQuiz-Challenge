@@ -9,9 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        blur: 'url(/bg-image.png)',
       },
 
       colors: {
@@ -19,6 +17,7 @@ const config: Config = {
         darkNavy: '#313E51',
         navy: '#3B4D66',
         grayNavy: '#626C7F',
+        lightBluish: '#ABC1E1',
       },
     },
   },

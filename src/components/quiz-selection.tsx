@@ -28,12 +28,12 @@ export function QuizSelection({ quizData }: QuizSelectionProps) {
   }
 
   return (
-    <div className="grid grid-cols-2 pt-56">
+    <div className="grid lg:grid-cols-2 lg:pt-56 grid-cols-1 pt-36 px-6">
       <div className="flex flex-col gap-12">
-        <h1 className="text-white text-[64px] leading-none">
+        <h1 className="text-white lg:text-[64px] text-[40px] leading-none">
           Welcome to the <span className="font-bold">Frontend Quiz!</span>
         </h1>
-        <span className="text-lightBluish italic text-xl">
+        <span className="text-lightBluish italic lg:text-xl text-[14px] md:mb-0 mb-16">
           Pick a subject to get started.
         </span>
       </div>

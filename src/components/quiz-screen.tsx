@@ -35,6 +35,7 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
 
       setAnswer('')
       setAnswerSubmitted(false)
+      setShowEmptyMessage(false)
     }
   }
 
@@ -70,15 +71,15 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
 
   if (showResult) {
     return (
-      <div className="pt-[97px]">
+      <div className="lg:pt-[97px] pt-4 px-6">
         <QuizLogo
           imgUrl={quizData.quizzes[selectedQuiz].icon}
           title={quizData.quizzes[selectedQuiz].title}
         />
 
-        <div className="grid grid-cols-2  mt-[85px]">
-          <div className="flex flex-col gap-12">
-            <h1 className="text-white text-[64px] leading-none max-w-[465px]">
+        <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-[85px] mt-12">
+          <div className="flex flex-col gap-12 mb-10 lg:mb-0">
+            <h1 className="text-white lg:text-[64px] text-[40px] leading-none lg:max-w-[465px] max-w-[300px]">
               Quiz completed <span className="font-bold">Your scored...</span>
             </h1>
           </div>
@@ -88,8 +89,12 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
                 title={quizData.quizzes[selectedQuiz].title}
                 imgUrl={quizData.quizzes[selectedQuiz].icon}
               />
-              <h2 className="text-white text-[144px]">{score}</h2>
-              <span className="text-lightBluish text-2xl">out of 10</span>
+              <h2 className="text-white lg:text-[144px] text-[88px]">
+                {score}
+              </h2>
+              <span className="text-lightBluish lg:text-2xl text-lg">
+                out of 10
+              </span>
             </div>
             <Button title="Play Again" onClick={handleResetQuiz} />
           </div>
@@ -99,23 +104,23 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
   }
 
   return (
-    <div className="pt-[97px]">
+    <div className="lg:pt-[97px] pt-4 px-6">
       <QuizLogo
         title={quizData.quizzes[selectedQuiz].title}
         imgUrl={quizData.quizzes[selectedQuiz].icon}
       />
 
-      <div className="grid grid-cols-2  mt-[85px]">
+      <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-[85px] mt-12">
         <div className="flex flex-col gap-12">
-          <span className="text-lightBluish italic text-xl">
+          <span className="text-lightBluish italic lg:text-xl text-[14px]">
             Question {currentQuestion + 1} of 10
           </span>
 
-          <p className="text-white text-4xl leading-none max-w-[465px]">
+          <p className="text-white lg:text-4xl text-xl leading-none lg:max-w-[465px]">
             {quizData.quizzes[selectedQuiz].questions[currentQuestion].question}
           </p>
 
-          <div className="h-2 rounded-full bg-navy max-w-[465px] mt-[180px]">
+          <div className="h-2 rounded-full bg-navy max-w-[465px] lg:mt-[180px] mt-6 lg:mb-0 mb-10">
             <div
               className="h-2 rounded-full bg-primary"
               style={{
@@ -154,8 +159,14 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
 
           {showEmptyMessage && (
             <div className="flex items-center justify-center gap-3">
-              <Image src={Wrong} alt="" />
-              <p className="text-lightGray text-2xl">Please select an answer</p>
+              <Image
+                src={Wrong}
+                alt=""
+                className="w-6 h-6 lg:w-[30px] lg:h-[30px]"
+              />
+              <p className="text-lightGray lg:text-2xl text-lg">
+                Please select an answer
+              </p>
             </div>
           )}
         </div>

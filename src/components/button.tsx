@@ -7,10 +7,10 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 export function Button({ title, ...rest }: ButtonProps) {
   return (
     <button
-      className="bg-primary rounded-3xl  enabled:hover:bg-primary/70"
+      className="bg-primary lg:rounded-3xl rounded-xl  enabled:hover:bg-primary/70"
       {...rest}
     >
-      <p className="text-[28px] text-white p-8">{title}</p>
+      <p className="lg:text-[28px] text-lg text-white lg:p-8 p-5">{title}</p>
     </button>
   )
 }

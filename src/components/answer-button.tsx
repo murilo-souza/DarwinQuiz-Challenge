@@ -54,24 +54,32 @@ export function AnswerButton({
   return (
     <button
       {...rest}
-      className={`${buttonClass} flex items-center justify-between bg-navy p-5 rounded-3xl group ${isSelected ? 'ring-[3px] ring-primary' : ''}`}
+      className={`${buttonClass} flex items-center justify-between bg-navy lg:p-5 p-3 lg:rounded-3xl rounded-xl group ${isSelected ? 'ring-[3px] ring-primary' : ''}`}
       disabled={isAnswered}
     >
       <div className="flex gap-8 items-center">
         <div
-          className={`${brickClass}  ${isSelected ? 'bg-primary' : 'bg-lightGray group-hover:bg-lightViolet'} min-h-14 min-w-14 rounded-lg flex items-center justify-center`}
+          className={`${brickClass}  ${isSelected ? 'bg-primary' : 'bg-lightGray group-hover:bg-lightViolet'} lg:min-h-14 lg:min-w-14 min-w-10 min-h-10 rounded-lg flex items-center justify-center`}
         >
           <p
-            className={`${textClass} text-[28px]  ${isSelected ? 'text-white' : 'text-grayNavy enabled:group-hover:text-primary'}`}
+            className={`${textClass} lg:text-[28px] text-lg  ${isSelected ? 'text-white' : 'text-grayNavy enabled:group-hover:text-primary'}`}
           >
             {letter}
           </p>
         </div>
-        <h2 className="text-[28px] text-white">{title}</h2>
+        <h2 className="lg:text-[28px] text-lg text-white">{title}</h2>
       </div>
 
-      {isAnswered && showCorrect && <Image src={Correct} alt="" />}
-      {isAnswered && isSelected && !showCorrect && <Image src={Wrong} alt="" />}
+      {isAnswered && showCorrect && (
+        <Image
+          src={Correct}
+          alt=""
+          className="w-6 h-6 lg:w-[30px] lg:h-[30px]"
+        />
+      )}
+      {isAnswered && isSelected && !showCorrect && (
+        <Image src={Wrong} alt="" className="w-6 h-6 lg:w-[30px] lg:h-[30px]" />
+      )}
     </button>
   )
 }

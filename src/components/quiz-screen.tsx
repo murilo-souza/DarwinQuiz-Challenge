@@ -102,7 +102,7 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
             <div
               className="h-2 rounded-full bg-primary"
               style={{
-                width: `${((currentQuestion + 1) / quizData.quizzes[selectedQuiz].questions.length) * 100}%`,
+                width: `${(currentQuestion + 1) * 10}%`,
               }}
             />
           </div>

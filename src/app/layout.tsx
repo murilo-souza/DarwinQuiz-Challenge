@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 import './globals.css'
+import { QuizContextProvider } from '@/context/quiz-context'
 
 const font = Rubik({ subsets: ['latin'] })
 
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <main className="bg-blur bg-darkNavy bg-cover bg-no-repeat min-h-screen">
-          <div className="mx-auto max-w-7xl pb-12">{children}</div>
+          <QuizContextProvider>
+            <div className="mx-auto max-w-7xl pb-12">{children}</div>
+          </QuizContextProvider>
         </main>
       </body>
     </html>

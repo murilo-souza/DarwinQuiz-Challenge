@@ -7,8 +7,6 @@ async function getQuizzes() {
 
   const quizzes = await response.json()
 
-  console.log(quizzes)
-
   return quizzes
 }
 

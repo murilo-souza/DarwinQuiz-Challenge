@@ -1,10 +1,10 @@
 'use client'
 
 import { QuizLogo } from './quiz-logo'
-import { Button } from '../button'
-import { AnswerButton } from '../answer-button'
+import { Button } from './button'
+import { AnswerButton } from './answer-button'
 import { useQuiz } from '@/context/quiz-context'
-import { QuizProps, QuizSelection } from '../quiz-selection'
+import { QuizProps, QuizSelection } from './quiz-selection'
 import { useState } from 'react'
 
 interface QuizSelectionProps {
@@ -110,11 +110,13 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
         <div className="flex flex-col gap-6">
           {quizData.quizzes[selectedQuiz].questions[
             currentQuestion
-          ].options.map((option: string) => (
+          ].options.map((option: string, i) => (
             <AnswerButton
               key={option}
               title={option}
+              letter={String.fromCharCode(65 + i)}
               onClick={() => setAnswer(option)}
+              isSelected={answer === option}
             />
           ))}
 

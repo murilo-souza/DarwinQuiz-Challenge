@@ -1,8 +1,8 @@
 'use client'
 
 import { useQuiz } from '@/context/quiz-context'
-import { QuizButton } from './quiz/quiz-button'
-import { QuizScreen } from './quiz/quiz-screen'
+import { QuizButton } from './quiz-button'
+import { QuizScreen } from './quiz-screen'
 
 export interface QuizProps {
   quizzes: {

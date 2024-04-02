@@ -6,6 +6,8 @@ import { AnswerButton } from './answer-button'
 import { useQuiz } from '@/context/quiz-context'
 import { QuizProps, QuizSelection } from './quiz-selection'
 import { useState } from 'react'
+import Image from 'next/image'
+import Wrong from '../../public/wrong.svg'
 
 interface QuizSelectionProps {
   quizData: QuizProps
@@ -17,16 +19,11 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
   const [showResult, setShowResult] = useState(false)
   const [answer, setAnswer] = useState('')
   const { selectedQuiz, setSelectedQuiz } = useQuiz()
+  const [answerSubmitted, setAnswerSubmitted] = useState(false)
+  const [showEmptyMessage, setShowEmptyMessage] = useState(false)
 
   function handleNextQuestion() {
     if (selectedQuiz !== null) {
-      if (
-        answer ===
-        quizData.quizzes[selectedQuiz].questions[currentQuestion].answer
-      ) {
-        setScore(score + 1)
-      }
-
       if (
         currentQuestion + 1 <
         quizData.quizzes[selectedQuiz].questions.length
@@ -37,6 +34,26 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
       }
 
       setAnswer('')
+      setAnswerSubmitted(false)
+    }
+  }
+
+  function handleSubmitAnswer() {
+    if (answer === '') {
+      setShowEmptyMessage(true)
+      return
+    }
+
+    if (selectedQuiz !== null) {
+      if (
+        answer ===
+        quizData.quizzes[selectedQuiz].questions[currentQuestion].answer
+      ) {
+        setScore(score + 1)
+        setAnswerSubmitted(true)
+      } else {
+        setAnswerSubmitted(true)
+      }
     }
   }
 
@@ -117,10 +134,30 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
               letter={String.fromCharCode(65 + i)}
               onClick={() => setAnswer(option)}
               isSelected={answer === option}
+              isCorrect={
+                answer ===
+                quizData.quizzes[selectedQuiz].questions[currentQuestion].answer
+              }
+              isAnswered={answerSubmitted}
+              showCorrect={
+                option ===
+                quizData.quizzes[selectedQuiz].questions[currentQuestion].answer
+              }
             />
           ))}
 
-          <Button title="Submit Answer" onClick={handleNextQuestion} />
+          {answerSubmitted ? (
+            <Button title="Next Question" onClick={handleNextQuestion} />
+          ) : (
+            <Button title="Submit Answer" onClick={handleSubmitAnswer} />
+          )}
+
+          {showEmptyMessage && (
+            <div className="flex items-center justify-center gap-3">
+              <Image src={Wrong} alt="" />
+              <p className="text-lightGray text-2xl">Please select an answer</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -20,6 +20,8 @@ const config: Config = {
         lightBluish: '#ABC1E1',
         lightGray: '#F4F6FA',
         lightViolet: '#F6E7FF',
+        correct: '#26D782',
+        wrong: '#EE5454',
       },
     },
   },

@@ -25,9 +25,9 @@ export function AnswerButton({
 
   if (isAnswered) {
     if (isCorrect && isSelected) {
-      buttonClass += 'ring-[3px] ring-correct text-white'
+      buttonClass += 'ring-[3px] ring-correct'
     } else if (!isCorrect && isSelected) {
-      buttonClass += 'ring-[3px] ring-wrong text-white'
+      buttonClass += 'ring-[3px] ring-wrong'
     }
   }
 
@@ -54,15 +54,15 @@ export function AnswerButton({
   return (
     <button
       {...rest}
-      className={`${buttonClass} flex items-center justify-between bg-navy lg:p-5 p-3 lg:rounded-3xl rounded-xl group ${isSelected ? 'ring-[3px] ring-primary' : ''}`}
+      className={`${buttonClass} flex items-center justify-between bg-navy lg:p-5 p-3 lg:rounded-3xl rounded-xl ${isAnswered ? '' : 'group'} ${isSelected && !isAnswered ? 'ring-[3px] ring-primary' : ''}`}
       disabled={isAnswered}
     >
       <div className="flex gap-8 items-center">
         <div
-          className={`${brickClass}  ${isSelected ? 'bg-primary' : 'bg-lightGray group-hover:bg-lightViolet'} lg:min-h-14 lg:min-w-14 min-w-10 min-h-10 rounded-lg flex items-center justify-center`}
+          className={`${brickClass}  ${isSelected && !isAnswered ? 'bg-primary' : brickClass === '' ? 'bg-lightGray group-hover:bg-lightViolet' : brickClass} lg:min-h-14 lg:min-w-14 min-w-10 min-h-10 rounded-lg flex items-center justify-center`}
         >
           <p
-            className={`${textClass} lg:text-[28px] text-lg  ${isSelected ? 'text-white' : 'text-grayNavy enabled:group-hover:text-primary'}`}
+            className={`${textClass} lg:text-[28px] text-lg  ${isSelected && !isAnswered ? 'text-white' : textClass === '' ? 'text-grayNavy group-hover:text-primary' : textClass}`}
           >
             {letter}
           </p>

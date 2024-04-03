@@ -1,6 +1,7 @@
 import { HTMLAttributes } from 'react'
 import { QuizLogo } from './quiz-logo'
 
+// Propriedades do botão de selecionar o quiz
 interface QuizButtonProps extends HTMLAttributes<HTMLButtonElement> {
   imgUrl: string
   title: string

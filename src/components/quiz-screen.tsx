@@ -23,6 +23,7 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
   const [answerSubmitted, setAnswerSubmitted] = useState(false)
   const [showEmptyMessage, setShowEmptyMessage] = useState(false)
 
+  // Função para ir para proxima pergunta
   function handleNextQuestion() {
     if (selectedQuiz !== null) {
       if (
@@ -40,6 +41,7 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
     }
   }
 
+  // Função para verificar resposta correta
   function handleSubmitAnswer() {
     if (answer === '') {
       setShowEmptyMessage(true)
@@ -59,6 +61,7 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
     }
   }
 
+  // Função para redefinir o quiz e voltar para a tela de seleção
   function handleResetQuiz() {
     setCurrentQuestion(0)
     setScore(0)
@@ -66,6 +69,7 @@ export function QuizScreen({ quizData }: QuizSelectionProps) {
     setSelectedQuiz(null)
   }
 
+  // Caso o quiz não tenha sido selecionado ele sempre vai retornar para a tela de seleção
   if (selectedQuiz === null) {
     return <QuizSelection quizData={quizData} />
   }

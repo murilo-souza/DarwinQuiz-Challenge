@@ -1,5 +1,6 @@
 import { QuizSelection } from '@/components/quiz-selection'
 
+// Carregando os dados vindo da API
 async function getQuizzes() {
   const response = await fetch('http://localhost:3333/quizzes', {
     cache: 'no-store',

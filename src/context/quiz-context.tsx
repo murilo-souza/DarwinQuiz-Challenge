@@ -1,5 +1,7 @@
 'use client'
 
+// Context para selecionar o quiz e poder redefinir dentro da aplicação inteira
+
 import { createContext, ReactNode, useContext, useState } from 'react'
 
 interface QuizContextData {

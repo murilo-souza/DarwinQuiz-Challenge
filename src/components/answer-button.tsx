@@ -21,8 +21,10 @@ export function AnswerButton({
   showCorrect,
   ...rest
 }: AnswerButtonProps) {
+  // Adicionando classe no botão de acordo com a resposta
   let buttonClass = ''
 
+  // Verificando se a pergunta foi respondido
   if (isAnswered) {
     if (isCorrect && isSelected) {
       buttonClass += 'ring-[3px] ring-correct'
@@ -31,8 +33,10 @@ export function AnswerButton({
     }
   }
 
+  // Adicionando classe no botão de acordo com a resposta
   let textClass = ''
 
+  // Verificando se a pergunta foi respondido
   if (isAnswered) {
     if (isCorrect && isSelected) {
       textClass += 'text-white'
@@ -41,8 +45,10 @@ export function AnswerButton({
     }
   }
 
+  // Adicionando classe no botão de acordo com a resposta
   let brickClass = ''
 
+  // Verificando se a pergunta foi respondido
   if (isAnswered) {
     if (isCorrect && isSelected) {
       brickClass += 'bg-correct'
@@ -70,6 +76,7 @@ export function AnswerButton({
         <h2 className="lg:text-[28px] text-lg text-white">{title}</h2>
       </div>
 
+      {/* Imagem de certo ou errado dependendo da resposta */}
       {isAnswered && showCorrect && (
         <Image
           src={Correct}
